@@ -17,7 +17,8 @@ var highscore =$('#highscore')
 //function that starts quiz
 function StartQuiz(){
     countdown();
-
+    highscore.attr("hidden", true);
+    names.attr("hidden", true);
     question.text('what universe are the Z fighters from?')
     answersEl.empty()
 
@@ -58,21 +59,25 @@ function StartQuiz(){
             //Changes question
             question.text('')
             //changes answers
+            //correct answer
             $('#btn1').text('correct').on('click', function(){
                 answersEl.empty();
                 popUp.empty();
                 correct2();
             });
+            //wrong answer
             $('#btn2').text('test').on('click', function(){
         
                 timeLeft--;
                 popUp.text(`you lost time!`);
             });
+            //wrong answer
             $('#btn3').text('test').on('click', function(){
 
                 timeLeft--;
                 popUp.text(`you lost time!`);
             });
+            //wrong answer
             $('#btn4').text('test').on('click', function(){
 
                 timeLeft--;
@@ -86,22 +91,25 @@ function StartQuiz(){
         console.log('correct')
                 //Changes question
                 question.text('??? question 3 ???')
-    
+                //wrong answer
                 $('#btn1').text('test').on('click', function(){
 
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
+                //wrong answer
                 $('#btn2').text('test').on('click', function(){
 
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
+                //wrong answer
                 $('#btn3').text('test').on('click', function(){
 
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
+                //correct answer
                 $('#btn4').text('correct').on('click', function(){
                     console.log("right3")
                     answersEl.empty();
@@ -116,21 +124,24 @@ function StartQuiz(){
         console.log('correct')
                 //Changes question
                 question.text('??? question 4 ???')
-    
+                //wrong answer
                 $('#btn1').text('test').on('click', function(){
             
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
+                //correct answer
                 $('#btn2').text('correct').on('click', function(){
                     answersEl.empty();
                     correct4();
                 });
+                //wrong answer
                 $('#btn3').text('test').on('click', function(){
             
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
+                //wrong answer
                 $('#btn4').text('test').on('click', function(){
             
                     timeLeft--;
@@ -179,7 +190,10 @@ function StartQuiz(){
             // Once `timeLeft` gets to 0, set `timerEl` to an empty string
             timerEl.text('Time is up!');
             answersEl.empty();
+            popUp.empty();
             question.text('You Lose 😢');
+            highscore.attr("hidden", false);
+            names.attr("hidden", false);
             answersEl.append('<li> "Try again?" <button id="btn1">');
             $('#btn1').text('Start Quiz').on('click', StartQuiz);
             // Use `clearInterval()` to stop the timer
@@ -189,20 +203,6 @@ function StartQuiz(){
         }, 1000);
       }
 };
-
-
-
-
-
-
-
-// function incorrect(){
-//     //lose time 
-//     countdown.timeLeft =-2;
-//     console.log("hello")
-//     //display mesg every time you lose
-// }
-
 
 
 startBtn.on('click', StartQuiz);
