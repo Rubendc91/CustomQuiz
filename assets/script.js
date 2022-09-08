@@ -17,6 +17,8 @@ var highscore =$('#highscore')
 //function that starts quiz
 function StartQuiz(){
     countdown();
+    timerEl.attr("hidden", false);
+    startBtn.attr("hidden", true);
     highscore.attr("hidden", true);
     names.attr("hidden", true);
     question.text('what universe are the Z fighters from?')
@@ -57,28 +59,28 @@ function StartQuiz(){
         answersEl.append('<li> <button id="btn1">', '<li> <button id="btn2">', '<li> <button id="btn3">', '<li><button id="btn4">');
         //
             //Changes question
-            question.text('')
+            question.text(`What is Goku's father's Name?`)
             //changes answers
             //correct answer
-            $('#btn1').text('correct').on('click', function(){
+            $('#btn1').text('Bardock').on('click', function(){
                 answersEl.empty();
                 popUp.empty();
                 correct2();
             });
             //wrong answer
-            $('#btn2').text('test').on('click', function(){
+            $('#btn2').text('Rhubarb').on('click', function(){
         
                 timeLeft--;
                 popUp.text(`you lost time!`);
             });
             //wrong answer
-            $('#btn3').text('test').on('click', function(){
+            $('#btn3').text('Kakarot').on('click', function(){
 
                 timeLeft--;
                 popUp.text(`you lost time!`);
             });
             //wrong answer
-            $('#btn4').text('test').on('click', function(){
+            $('#btn4').text('Tarble').on('click', function(){
 
                 timeLeft--;
                 popUp.text(`you lost time!`);
@@ -90,27 +92,27 @@ function StartQuiz(){
         //
         console.log('correct')
                 //Changes question
-                question.text('??? question 3 ???')
+                question.text('What is the name of the dragon who grants wishes on earth?')
                 //wrong answer
-                $('#btn1').text('test').on('click', function(){
+                $('#btn1').text('Super Shenron').on('click', function(){
 
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
                 //wrong answer
-                $('#btn2').text('test').on('click', function(){
+                $('#btn2').text('Mr. Poko Poko').on('click', function(){
 
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
                 //wrong answer
-                $('#btn3').text('test').on('click', function(){
+                $('#btn3').text('Porunga').on('click', function(){
 
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
                 //correct answer
-                $('#btn4').text('correct').on('click', function(){
+                $('#btn4').text('Shenron').on('click', function(){
                     console.log("right3")
                     answersEl.empty();
                     popUp.empty();
@@ -123,26 +125,26 @@ function StartQuiz(){
         //
         console.log('correct')
                 //Changes question
-                question.text('??? question 4 ???')
+                question.text(`What is the name of Vageta's wife?`)
                 //wrong answer
-                $('#btn1').text('test').on('click', function(){
+                $('#btn1').text('Chi Chi').on('click', function(){
             
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
                 //correct answer
-                $('#btn2').text('correct').on('click', function(){
+                $('#btn2').text('Bulma').on('click', function(){
                     answersEl.empty();
                     correct4();
                 });
                 //wrong answer
-                $('#btn3').text('test').on('click', function(){
+                $('#btn3').text('Launch').on('click', function(){
             
                     timeLeft--;
                     popUp.text(`you lost time!`);
                 });
                 //wrong answer
-                $('#btn4').text('test').on('click', function(){
+                $('#btn4').text('Android 18').on('click', function(){
             
                     timeLeft--;
                     popUp.text(`you lost time!`);
@@ -151,7 +153,7 @@ function StartQuiz(){
     //win function
     function correct4(){
         console.log('you win')
-        question.text('!You Win!')
+        question.text('!Congratulations Z fighter!')
         answersEl.empty();
         popUp.empty(); 
         answersEl.append('<li><input id="name"><button id="btn1">');
@@ -161,18 +163,17 @@ function StartQuiz(){
     };
     //Record highscore
     function highScore(){
+        startBtn.attr("hidden", false);
         highscore.attr("hidden", false);
         names.attr("hidden", false);
         names.append('<li>' + $('input[id="name"]').val() + " " + timeLeft + ' seconds remaining');
         answersEl.empty();
-        answersEl.append('<li><button id="btn1">');
         question.text('');
         timerEl.empty();
-        $('#btn1').text('Start Quiz').on('click', StartQuiz);
     };
     //Timer function
     function countdown() {
-        timeLeft = 10;
+        timeLeft = 15;
       
         // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
         timeInterval = setInterval(function () {        
@@ -188,13 +189,13 @@ function StartQuiz(){
             timeLeft--;         
         } else {
             // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-            timerEl.text('Time is up!');
+            timerEl.empty();
             answersEl.empty();
             popUp.empty();
-            question.text('You Lose 😢');
+            question.text('Time is up! You Lose 😢');
             highscore.attr("hidden", false);
             names.attr("hidden", false);
-            answersEl.append('<li> "Try again?" <button id="btn1">');
+            answersEl.append(' "Try again?" <button id="btn1">');
             $('#btn1').text('Start Quiz').on('click', StartQuiz);
             // Use `clearInterval()` to stop the timer
             clearInterval(timeInterval);

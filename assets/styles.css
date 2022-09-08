@@ -1,0 +1,75 @@
+/* variables */
+:root{
+    --mainColor: darkorange;
+    --secondaryColor: darkred;
+    --width: 100%;
+    --spacing: .5rem;
+
+}
+/* universal Selectors */
+body{
+    background-image: url(./images/shenron.png);
+    background-color: rgba(0, 0, 0, .6);
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: inline-flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items:  center;
+    width: var(--width);
+}
+button{
+    border-radius: 1rem;
+}
+img{
+    height: 15rem;
+}
+button{
+    margin: .5rem;
+    background-color: var(--mainColor);
+    color: var(--secondaryColor);
+}
+li {
+    list-style: none;
+    text-align: center;
+}
+p{
+    color: var(--mainColor);
+}
+/* class/id selectors */
+#highscore{
+    background-color: var(--mainColor);
+    color: var(--secondaryColor);
+    border-radius: var(--spacing);
+    list-style: none;
+
+}
+#banner{
+    display: flex;
+    justify-content: space-between;
+    width: var(--width);
+}
+#question{
+    background-color: var(--mainColor);
+    color: var(--secondaryColor);
+    border-radius: var(--spacing);
+}
+#timer{
+    background-color: var(--mainColor);
+    color: var(--secondaryColor);
+    border-radius: var(--spacing);
+}
+
+#backDrop{
+    background-color: rgba(0, 0, 0, 0.700);
+    border-radius: 50px;
+    padding: 2rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items:  center;
+
+}
+#names{
+    color: var(--mainColor);
+}
