@@ -21,7 +21,7 @@ function StartQuiz(){
     startBtn.attr("hidden", true);
     highscore.attr("hidden", true);
     names.attr("hidden", true);
-    question.text('what universe are the Z fighters from?')
+    question.text('What universe are the Z fighters from?')
     answersEl.empty()
 
 
