@@ -73,3 +73,11 @@ p{
 #names{
     color: var(--mainColor);
 }
+
+/* Media query */
+@media screen and (max-width: 768px) {
+    img {
+    height: 7rem;
+      
+    };
+}
